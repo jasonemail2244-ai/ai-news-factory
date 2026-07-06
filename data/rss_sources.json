@@ -1,0 +1,29 @@
+[
+  {
+    "source_name": "CHINANEWS",
+    "rss_url": "https://www.chinanews.com.cn/rss/scroll-news.xml",
+    "category": "综合",
+    "priority": "A",
+    "status": "enabled",
+    "language": "zh",
+    "country": "CN"
+  },
+  {
+    "source_name": "36KR",
+    "rss_url": "https://36kr.com/feed",
+    "category": "科技",
+    "priority": "A",
+    "status": "enabled",
+    "language": "zh",
+    "country": "CN"
+  },
+  {
+    "source_name": "虎嗅",
+    "rss_url": "https://www.huxiu.com/rss/0.xml",
+    "category": "科技",
+    "priority": "A",
+    "status": "enabled",
+    "language": "zh",
+    "country": "CN"
+  }
+]
