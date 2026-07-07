@@ -13,7 +13,7 @@
     "rss_url": "https://36kr.com/feed",
     "category": "科技",
     "priority": "A",
-    "status": "enabled",
+    "status": "disabled",
     "language": "zh",
     "country": "CN"
   },
