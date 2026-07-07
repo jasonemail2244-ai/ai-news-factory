@@ -22,7 +22,7 @@
     "rss_url": "https://www.huxiu.com/rss/0.xml",
     "category": "科技",
     "priority": "A",
-    "status": "enabled",
+    "status": "disabled",
     "language": "zh",
     "country": "CN"
   }
