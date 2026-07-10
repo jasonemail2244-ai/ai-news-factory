@@ -1,1 +1,109 @@
+{
+  "schema_name": "ai_news_factory_shared_state",
+  "schema_version": "1.0.0",
+  "description": "AI News Factory 单条新闻在一次 Workflow 运行中的统一状态模型",
 
+  "meta": {
+    "trace_id": "",
+    "item_id": "",
+    "workflow_version": "1.0.0",
+    "created_at": "",
+    "updated_at": "",
+    "current_stage": "initialized",
+    "current_status": "processing"
+  },
+
+  "source": {
+    "source_id": "",
+    "source_name": "",
+    "source_type": "rss",
+    "source_url": "",
+    "category": "",
+    "region": "",
+    "language": "zh"
+  },
+
+  "raw_item": {
+    "raw_title": "",
+    "raw_summary": "",
+    "raw_url": "",
+    "raw_content": "",
+    "raw_pub_time": "",
+    "raw_hash": ""
+  },
+
+  "normalized_item": {
+    "title": "",
+    "summary": "",
+    "url": "",
+    "source": "",
+    "category": "",
+    "region": "",
+    "language": "zh",
+    "pub_time": "",
+    "keywords": [],
+    "entities": [],
+    "is_valid": false,
+    "invalid_reason": ""
+  },
+
+  "value_score": {
+    "total_score": 0,
+    "importance_score": 0,
+    "impact_score": 0,
+    "timeliness_score": 0,
+    "novelty_score": 0,
+    "decision": "pending",
+    "reason": "",
+    "tags": []
+  },
+
+  "topic_decision": {
+    "selected": false,
+    "topic_angle": "",
+    "target_reader": "",
+    "content_type": "",
+    "priority": "normal"
+  },
+
+  "article_draft": {
+    "article_id": "",
+    "headline": "",
+    "lead": "",
+    "body": "",
+    "background": "",
+    "source_links": [],
+    "word_count": 0,
+    "version": 1
+  },
+
+  "review_result": {
+    "quality_pass": false,
+    "quality_score": 0,
+    "fact_pass": false,
+    "safety_pass": false,
+    "format_pass": false,
+    "risk_level": "unknown",
+    "issues": [],
+    "revision_required": false,
+    "revision_instruction": ""
+  },
+
+  "publish_result": {
+    "publish_status": "pending",
+    "channel": "",
+    "published_at": "",
+    "external_message_id": "",
+    "error_message": ""
+  },
+
+  "runtime": {
+    "loop_index": 0,
+    "revision_count": 0,
+    "retry_count": 0,
+    "max_retry": 3,
+    "error_stage": "",
+    "error_code": "",
+    "error_message": ""
+  }
+}
