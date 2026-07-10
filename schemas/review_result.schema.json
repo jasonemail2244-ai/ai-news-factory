@@ -1,1 +1,54 @@
-
+{
+  "schema_name": "review_result",
+  "schema_version": "1.0.0",
+  "required_fields": [
+    "review_type",
+    "pass",
+    "score",
+    "risk_level",
+    "issues",
+    "revision_required"
+  ],
+  "properties": {
+    "review_type": {
+      "type": "string",
+      "allowed_values": [
+        "normalization",
+        "news_value",
+        "article_quality",
+        "fact_check",
+        "safety",
+        "publish_format"
+      ]
+    },
+    "pass": {
+      "type": "boolean"
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "risk_level": {
+      "type": "string",
+      "allowed_values": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "hard_fail": {
+      "type": "boolean"
+    },
+    "issues": {
+      "type": "array"
+    },
+    "revision_required": {
+      "type": "boolean"
+    },
+    "revision_instruction": {
+      "type": "string"
+    }
+  }
+}
