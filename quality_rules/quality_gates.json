@@ -1,1 +1,114 @@
+{
+  "standard_name": "ai_news_factory_quality_gates",
+  "version": "1.0.0",
 
+  "global_policy": {
+    "maximum_revision_count": 2,
+    "hard_fail_action": "reject",
+    "soft_fail_action": "revise",
+    "invalid_output_action": "retry"
+  },
+
+  "quality_gates": [
+    {
+      "gate_id": "QG01",
+      "name": "raw_data_validation",
+      "after_stage": "raw_collected",
+      "execution_type": "code_and_if",
+      "pass_conditions": {
+        "title_required": true,
+        "url_required": true,
+        "duplicate_must_be_false": true,
+        "source_required": true
+      },
+      "on_pass": "normalize",
+      "on_fail": "reject"
+    },
+    {
+      "gate_id": "QG02",
+      "name": "normalization_validation",
+      "after_stage": "normalized",
+      "execution_type": "code_and_llm",
+      "pass_conditions": {
+        "json_valid": true,
+        "required_fields_complete": true,
+        "source_url_preserved": true,
+        "is_valid": true
+      },
+      "on_pass": "value_evaluation",
+      "on_fail": "retry_normalization"
+    },
+    {
+      "gate_id": "QG03",
+      "name": "news_value_validation",
+      "after_stage": "scored",
+      "execution_type": "if",
+      "pass_conditions": {
+        "minimum_total_score": 75,
+        "decision": "pass"
+      },
+      "on_pass": "topic_and_writing",
+      "on_fail": "reject"
+    },
+    {
+      "gate_id": "QG04",
+      "name": "article_quality_validation",
+      "after_stage": "drafted",
+      "execution_type": "llm_judge",
+      "pass_conditions": {
+        "minimum_quality_score": 85,
+        "hard_fail": false
+      },
+      "dimensions": {
+        "factual_consistency": 30,
+        "completeness": 20,
+        "structure": 15,
+        "readability": 15,
+        "depth": 10,
+        "source_transparency": 10
+      },
+      "on_pass": "fact_check",
+      "on_fail": "article_revision"
+    },
+    {
+      "gate_id": "QG05",
+      "name": "fact_validation",
+      "after_stage": "fact_checked",
+      "execution_type": "code_and_llm",
+      "pass_conditions": {
+        "unsupported_core_claims": 0,
+        "conflicting_core_claims": 0,
+        "wrong_names_or_numbers": 0
+      },
+      "on_pass": "safety_review",
+      "on_fail": "article_revision"
+    },
+    {
+      "gate_id": "QG06",
+      "name": "safety_validation",
+      "after_stage": "safety_reviewed",
+      "execution_type": "llm_and_rules",
+      "pass_conditions": {
+        "safety_pass": true,
+        "maximum_risk_level": "low",
+        "hard_fail": false
+      },
+      "on_pass": "publish_format",
+      "on_fail": "reject_or_safe_revision"
+    },
+    {
+      "gate_id": "QG07",
+      "name": "publish_format_validation",
+      "after_stage": "formatted",
+      "execution_type": "code_and_if",
+      "pass_conditions": {
+        "content_not_empty": true,
+        "title_required": true,
+        "source_link_required": true,
+        "within_channel_length_limit": true
+      },
+      "on_pass": "publish",
+      "on_fail": "reformat"
+    }
+  ]
+}
