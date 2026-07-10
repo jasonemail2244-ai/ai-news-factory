@@ -1,1 +1,53 @@
-
+{
+  "schema_name": "value_score",
+  "schema_version": "1.0.0",
+  "required_fields": [
+    "total_score",
+    "importance_score",
+    "impact_score",
+    "timeliness_score",
+    "novelty_score",
+    "decision",
+    "reason"
+  ],
+  "properties": {
+    "total_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "importance_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 40
+    },
+    "impact_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "timeliness_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "novelty_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "decision": {
+      "type": "string",
+      "allowed_values": [
+        "pass",
+        "reject"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array"
+    }
+  }
+}
