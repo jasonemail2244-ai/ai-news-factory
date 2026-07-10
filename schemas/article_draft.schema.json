@@ -1,1 +1,39 @@
-
+{
+  "schema_name": "article_draft",
+  "schema_version": "1.0.0",
+  "required_fields": [
+    "headline",
+    "lead",
+    "body",
+    "source_links",
+    "word_count",
+    "version"
+  ],
+  "properties": {
+    "article_id": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string"
+    },
+    "lead": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string"
+    },
+    "source_links": {
+      "type": "array"
+    },
+    "word_count": {
+      "type": "number"
+    },
+    "version": {
+      "type": "number",
+      "minimum": 1
+    }
+  }
+}
