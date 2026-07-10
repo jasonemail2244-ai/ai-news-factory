@@ -1,1 +1,69 @@
+{
+  "flow_name": "ai_news_factory_database_flow",
+  "version": "1.0.0",
+  "database_enabled": false,
+  "current_mode": "design_only",
 
+  "storage_points": [
+    {
+      "storage_id": "SP01",
+      "stage": "raw_collected",
+      "after_node": "rss_parse",
+      "future_entity": "raw_news",
+      "data_source": "raw_item",
+      "enabled": false,
+      "priority": "high",
+      "reason": "用于原始数据回溯、去重和抓取故障分析"
+    },
+    {
+      "storage_id": "SP02",
+      "stage": "normalized",
+      "after_node": "normalize",
+      "future_entity": "normalized_news",
+      "data_source": "normalized_item",
+      "enabled": false,
+      "priority": "medium",
+      "reason": "为评分、聚类和后续写作提供统一数据"
+    },
+    {
+      "storage_id": "SP03",
+      "stage": "scored",
+      "after_node": "value_evaluation",
+      "future_entity": "scored_news",
+      "data_source": "value_score",
+      "enabled": false,
+      "priority": "medium",
+      "reason": "用于分析选题质量和评估规则效果"
+    },
+    {
+      "storage_id": "SP04",
+      "stage": "drafted",
+      "after_node": "article_writing",
+      "future_entity": "articles",
+      "data_source": "article_draft",
+      "enabled": false,
+      "priority": "high",
+      "reason": "用于文章版本管理和内容追溯"
+    },
+    {
+      "storage_id": "SP05",
+      "stage": "reviewed",
+      "after_node": "quality_review",
+      "future_entity": "review_logs",
+      "data_source": "review_result",
+      "enabled": false,
+      "priority": "high",
+      "reason": "用于记录审核问题和优化质量规则"
+    },
+    {
+      "storage_id": "SP06",
+      "stage": "published",
+      "after_node": "feishu_publish",
+      "future_entity": "publish_logs",
+      "data_source": "publish_result",
+      "enabled": false,
+      "priority": "high",
+      "reason": "用于确认发布结果和失败重试"
+    }
+  ]
+}
