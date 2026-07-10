@@ -1,1 +1,65 @@
-
+{
+  "schema_name": "normalized_news",
+  "schema_version": "1.0.0",
+  "required_fields": [
+    "title",
+    "summary",
+    "url",
+    "source",
+    "category",
+    "region",
+    "language",
+    "pub_time",
+    "is_valid"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "标准化后的新闻标题"
+    },
+    "summary": {
+      "type": "string",
+      "description": "忠于原文的简明摘要"
+    },
+    "url": {
+      "type": "string",
+      "description": "原始新闻链接"
+    },
+    "source": {
+      "type": "string",
+      "description": "新闻来源名称"
+    },
+    "category": {
+      "type": "string",
+      "description": "新闻分类"
+    },
+    "region": {
+      "type": "string",
+      "description": "新闻所属地区"
+    },
+    "language": {
+      "type": "string",
+      "description": "新闻语言"
+    },
+    "pub_time": {
+      "type": "string",
+      "description": "新闻发布时间"
+    },
+    "keywords": {
+      "type": "array",
+      "description": "关键词列表"
+    },
+    "entities": {
+      "type": "array",
+      "description": "人物、机构、地点等实体"
+    },
+    "is_valid": {
+      "type": "boolean",
+      "description": "清洗后数据是否有效"
+    },
+    "invalid_reason": {
+      "type": "string",
+      "description": "数据无效时的原因"
+    }
+  }
+}
