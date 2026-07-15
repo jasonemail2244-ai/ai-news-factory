@@ -2,9 +2,6 @@
   "settings": {
     "version": "3.1",
     "timezone": "Asia/Shanghai",
-    "default_status": "enabled",
-    "default_language": "zh",
-    "default_country": "CN",
     "default_max_age_hours": 24,
     "default_max_articles": 30,
     "default_feed_type": "auto",
